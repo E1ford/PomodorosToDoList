@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/PomodorosToDoList/static/css/main.72f7a432.chunk.css",
+    "main.js": "/PomodorosToDoList/static/js/main.cc609683.chunk.js",
+    "main.js.map": "/PomodorosToDoList/static/js/main.cc609683.chunk.js.map",
+    "runtime-main.js": "/PomodorosToDoList/static/js/runtime-main.0e60ec49.js",
+    "runtime-main.js.map": "/PomodorosToDoList/static/js/runtime-main.0e60ec49.js.map",
+    "static/js/2.5f82404a.chunk.js": "/PomodorosToDoList/static/js/2.5f82404a.chunk.js",
+    "static/js/2.5f82404a.chunk.js.map": "/PomodorosToDoList/static/js/2.5f82404a.chunk.js.map",
+    "index.html": "/PomodorosToDoList/index.html",
+    "static/css/main.72f7a432.chunk.css.map": "/PomodorosToDoList/static/css/main.72f7a432.chunk.css.map",
+    "static/js/2.5f82404a.chunk.js.LICENSE.txt": "/PomodorosToDoList/static/js/2.5f82404a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0e60ec49.js",
+    "static/js/2.5f82404a.chunk.js",
+    "static/css/main.72f7a432.chunk.css",
+    "static/js/main.cc609683.chunk.js"
+  ]
+}

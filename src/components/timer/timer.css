@@ -1,35 +1,97 @@
 .timer{
-    padding: 0 20px;
+    padding: 20px 0 30px;
     background-color: #dd6662;
-    max-width: 800px;
+    border-radius: 8px;
+    max-width: 480px;
     height: 30vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     padding:40px;
     margin: 0 auto;
-    margin-top: 50px
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
-/* 
-.head-title{
-    color: white
-}
-ul{
-    list-style: none;
-    display: flex;
-}
-ul li{
-    margin: 0 5px 0 5px ;
-}
-
-.btn{
-    background-color: #dd6662;
+.timer-btn__mode{
     border: none;
     color: white;
-    padding: 8px 28px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    margin: 0px;
+    border-radius: 4px;
     font-size: 16px;
-    border-radius: 8px;
-} */
+    padding: 2px 12px;
+    height: 28px;
+    cursor: pointer;
+    background: none;
+    box-shadow: none;
+    font-weight: 300;
+}
+.timer-btn__mode-active{
+    border: none;
+    margin: 0px;
+    border-radius: 4px;
+    font-family: ArialRounded;
+    font-size: 16px;
+    padding: 2px 12px;
+    height: 28px;
+    cursor: pointer;
+    background: none rgba(0, 0, 0, 0.15);
+    box-shadow: none;
+    color: white;
+    opacity: 1;
+    font-weight: bold;
+}
+.timer-string{
+    color:#eee;
+    font-size: 120px;
+    font-weight: bold;
+    /* margin-top: 20px; */
+}
+.timer-btn-start{
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    margin: 20px 0px 0px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    box-shadow: rgb(235 235 235) 0px 6px 0px;
+    font-size: 22px;
+    height: 55px;
+    color: rgb(217, 85, 80);
+    font-weight: bold;
+    width: 200px;
+    background-color: white;
+    transition: color 0.5s ease-in-out 0s;
+}
+.timer-btn-stop{
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    margin: 20px 0px 0px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    box-shadow: rgb(235 235 235) 0px 6px 0px;
+    font-size: 22px;
+    height: 55px;
+    color: rgb(217, 85, 80);
+    font-weight: bold;
+    width: 150px;
+    background-color: white;
+}
+.timer-btn-start:active{
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    margin: 20px 0px 0px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    box-shadow: rgb(235 235 235) 0px 6px 0px;
+    font-size: 22px;
+    height: 55px;
+    color: rgb(217, 85, 80);
+    font-weight: bold;
+    width: 150px;
+    background-color: white;
+    transition: 0.1s ease-in-out 0s;
+}

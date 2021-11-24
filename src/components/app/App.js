@@ -9,26 +9,80 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      settings:{
-        time:25,
-        activeBtnMode:'pomodoro',
-        activeBtnStart:false
-      }
+      store:{
+        pomodoro:{ 
+          mode: "pomodoro",
+          time: 25,
+          color: 'red'
+        },
+        shortBreak:{
+          mode: "shortBreak",
+          time: 5,
+          color: 'blue'
+        },
+        longBreak:{
+          mode: "longBreak",
+          time: 15,
+          color: 'navyBlue'
+        }
+      },
+      visibleSettings: ''
+
     }
   }
-  onChangeActiveBtnMode=(mode)=>{
-    debugger
+  // изменение цвета в зависимости от mode
+  componentDidUpdate() {
+    switch(this.state.visibleSettings.color){
+      case "red":
+        document.body.style.backgroundColor = "#d95550"
+              break;
+      case "blue":
+        document.body.style.backgroundColor = "#4c9195"
+              break;
+      case "navyBlue":
+        document.body.style.backgroundColor = "#457ca3"
+              break;
+      default:
+        document.body.style.backgroundColor = "#d95550"
+    }
+
+  }
+
+
+
+// передаваемые настройки в зависимости от нажатой кнопки 
+  onChangeVisibleSettings=(mode)=>{
     this.setState(state=>{
-      state.settings.activeBtnMode = mode
-      return {state}
+      let newValue={};
+      switch(mode){
+        case "pomodoro":
+                newValue=state.store.pomodoro;
+                break;
+        case "shortBreak":
+                newValue=state.store.shortBreak;
+                break;
+        case "longBreak":
+                newValue=state.store.longBreak;
+                break;
+        default:
+                newValue=state.store.pomodoro;
+      }
+      return {...state,visibleSettings:newValue}
     })
   }
+
   render(){
+    // Инициализация  значения visibleSettings
+    if(!this.state.visibleSettings){
+      this.onChangeVisibleSettings()
+    }
+
+
     return (
       <div className="container">
-        <Head/>
+        <Head color={this.state.visibleSettings.color}/>
         <div className="body">
-          <Timer onChangeActiveBtnMode ={this.onChangeActiveBtnMode} settings={this.state.settings}/>
+          <Timer onChangeVisibleSettings={this.onChangeVisibleSettings} settings={this.state.visibleSettings}/>
         </div>
       </div>
     );

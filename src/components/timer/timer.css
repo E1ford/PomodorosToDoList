@@ -1,3 +1,4 @@
+
 .timer{
     padding: 20px 0 30px;
     background-color: #dd6662;
@@ -12,6 +13,12 @@
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 20px;
+}
+.timer__blue{
+    background-color: #5e9ca0;
+}
+.timer__navyBlue{
+    background-color: #5889ac;
 }
 
 .timer-btn__mode{
@@ -31,7 +38,6 @@
     border: none;
     margin: 0px;
     border-radius: 4px;
-    font-family: ArialRounded;
     font-size: 16px;
     padding: 2px 12px;
     height: 28px;
@@ -64,6 +70,13 @@
     background-color: white;
     transition: color 0.5s ease-in-out 0s;
 }
+.btn-start__blue{
+    color: #5e9ca0;
+}
+.btn-start__navyBlue{
+    color: #5889ac;
+}
+
 .timer-btn-stop{
     text-transform: uppercase;
     cursor: pointer;

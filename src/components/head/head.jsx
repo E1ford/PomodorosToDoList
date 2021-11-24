@@ -1,14 +1,33 @@
 
 import './head.css'
 
-const Head =()=>{
+const Head =({color})=>{
+
+
+    let clazzBorder= '';
+    let clazzBtn= '';
+    switch(color){
+        case "blue":
+            clazzBorder = "head head__blue"
+            clazzBtn = 'btn btn__blue'
+                break;
+        case "navyBlue":
+            clazzBorder = "head head__navyBlue"
+            clazzBtn = 'btn btn__navyBlue'
+                break;
+        default:
+            clazzBorder = "head"
+            clazzBtn = 'btn'
+    }
+
+
     return(
-        <div className="head">
+        <div className={clazzBorder}>
             <h2 className="head-title">pomodorosTDL</h2>
             <ul>
-                <li><button className="btn" type="submit">History</button></li>
-                <li><button className="btn" type="submit">Setting</button></li>
-                <li><button className="btn" type="submit">Login</button></li>
+                <li><button className={clazzBtn} type="submit">History</button></li>
+                <li><button className={clazzBtn} type="submit">Setting</button></li>
+                <li><button className={clazzBtn} type="submit">Login</button></li>
             </ul>
         </div>
     )

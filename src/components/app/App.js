@@ -8,38 +8,35 @@ import './app.css';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state={
+    this.state =  {
       store:{
         pomodoro:{ 
-          mode: "pomodoro",
+          name:"pomodoro",
           time: 25,
-          color: 'red'
         },
         shortBreak:{
-          mode: "shortBreak",
+          name:"shortBreak",
           time: 5,
-          color: 'blue'
         },
         longBreak:{
-          mode: "longBreak",
+          name:"longBreak",
           time: 15,
-          color: 'navyBlue'
         }
       },
-      visibleSettings: ''
-
+      mode: "pomodoro"
     }
   }
   // изменение цвета в зависимости от mode
-  componentDidUpdate() {
-    switch(this.state.visibleSettings.color){
-      case "red":
+  
+  componentDidUpdate(){
+    switch(this.state.mode){
+      case "pomodoro":
         document.body.style.backgroundColor = "#d95550"
               break;
-      case "blue":
+      case "shortBreak":
         document.body.style.backgroundColor = "#4c9195"
               break;
-      case "navyBlue":
+      case "longBreak":
         document.body.style.backgroundColor = "#457ca3"
               break;
       default:
@@ -48,41 +45,34 @@ class App extends Component {
 
   }
 
-
-
-// передаваемые настройки в зависимости от нажатой кнопки 
-  onChangeVisibleSettings=(mode)=>{
-    this.setState(state=>{
-      let newValue={};
+onModeSelect=(mode)=>{
+  this.setState(state=>({...state, mode:mode}))
+}
+// передаваемые настройки таймера в зависимости от нажатой кнопки 
+  onChangeVisibleSettings=(store,mode)=>{
       switch(mode){
         case "pomodoro":
-                newValue=state.store.pomodoro;
-                break;
+          debugger
+                return store.pomodoro
         case "shortBreak":
-                newValue=state.store.shortBreak;
-                break;
+                return store.shortBreak
         case "longBreak":
-                newValue=state.store.longBreak;
-                break;
+                  return store.longBreak
         default:
-                newValue=state.store.pomodoro;
+                 return store.pomodoro
       }
-      return {...state,visibleSettings:newValue}
-    })
   }
-
   render(){
-    // Инициализация  значения visibleSettings
-    if(!this.state.visibleSettings){
-      this.onChangeVisibleSettings()
-    }
-
-
+    const {store,mode} = this.state
+    let VisibleSetting = this.onChangeVisibleSettings(store, mode);
+    if(VisibleSetting.name == mode)
+    // let VisibleSetting = this.onChangeVisibleSettings(store, mode);
+    
     return (
       <div className="container">
-        <Head color={this.state.visibleSettings.color}/>
+        <Head color={mode}/>
         <div className="body">
-          <Timer onChangeVisibleSettings={this.onChangeVisibleSettings} settings={this.state.visibleSettings}/>
+          <Timer onModeSelect={this.onModeSelect} mode={mode} settings={VisibleSetting}/>
         </div>
       </div>
     );

@@ -1,5 +1,8 @@
-
+body{
+  background-color: #d95550;
+}
 .container{
   margin: 0 auto;
   max-width: 620px;
+  
 }

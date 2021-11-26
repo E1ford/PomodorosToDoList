@@ -1,17 +1,17 @@
 
 import './head.css'
 
-const Head =({color})=>{
+const Head =({mode})=>{
 
 
     let clazzBorder= '';
     let clazzBtn= '';
-    switch(color){
-        case "blue":
+    switch(mode){
+        case "shortBreak":
             clazzBorder = "head head__blue"
             clazzBtn = 'btn btn__blue'
                 break;
-        case "navyBlue":
+        case "longBreak":
             clazzBorder = "head head__navyBlue"
             clazzBtn = 'btn btn__navyBlue'
                 break;

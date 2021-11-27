@@ -52,7 +52,6 @@ onModeSelect=(mode)=>{
   onChangeVisibleSettings=(store,mode)=>{
       switch(mode){
         case "pomodoro":
-          debugger
                 return store.pomodoro
         case "shortBreak":
                 return store.shortBreak
@@ -65,14 +64,14 @@ onModeSelect=(mode)=>{
   render(){
     const {store,mode} = this.state
     let VisibleSetting = this.onChangeVisibleSettings(store, mode);
-    if(VisibleSetting.name == mode)
+    // if(VisibleSetting.name == mode)
     // let VisibleSetting = this.onChangeVisibleSettings(store, mode);
     
     return (
       <div className="container">
-        <Head color={mode}/>
+        <Head mode={mode}/>
         <div className="body">
-          <Timer onModeSelect={this.onModeSelect} mode={mode} settings={VisibleSetting}/>
+          <Timer onModeSelect={this.onModeSelect} mode={mode} key= {mode} settings={VisibleSetting}/>
         </div>
       </div>
     );

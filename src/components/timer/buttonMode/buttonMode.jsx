@@ -4,7 +4,6 @@ import './buttonMode.css'
 const ButtonMode =({mode,onModeSelect})=>{
 
     const onClickChangeSettings=(e)=>{
-        alert('ваш прогресс будет потерян, вы уверены ?')
         onModeSelect(e.target.name)
     }
 

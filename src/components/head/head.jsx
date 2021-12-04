@@ -1,12 +1,15 @@
 
 import './head.css'
 
-const Head =({mode})=>{
+const Head =(props)=>{
 
+const onOpenModal=(e)=>{
+    props.onToggleModalOpen(e.target.name)
+}
 
     let clazzBorder= '';
     let clazzBtn= '';
-    switch(mode){
+    switch(props.mode){
         case "shortBreak":
             clazzBorder = "head head__blue"
             clazzBtn = 'btn btn__blue'
@@ -22,12 +25,20 @@ const Head =({mode})=>{
 
 
     return(
+        
         <div className={clazzBorder}>
             <h2 className="head-title">pomodorosTDL</h2>
             <ul>
-                <li><button className={clazzBtn} type="submit">History</button></li>
-                <li><button className={clazzBtn} type="submit">Setting</button></li>
-                <li><button className={clazzBtn} type="submit">Login</button></li>
+            
+                <li><button onClick={onOpenModal} className={clazzBtn} 
+                name="History"
+                 type="submit">History</button></li>
+                <li><button onClick={onOpenModal} className={clazzBtn} 
+                name="Setting"
+                 type="submit">Setting</button></li> 
+                <li><button onClick={onOpenModal} className={clazzBtn}
+                name="Login"
+                 type="submit">Login</button></li>
             </ul>
         </div>
     )

@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Head from "../head/head"
+import Modal from '../modal/modal';
 import Timer from "../timer/timer"
 
 import './app.css';
@@ -23,9 +24,24 @@ class App extends Component {
           time: 15,
         }
       },
-      mode: "pomodoro"
+      mode: "pomodoro",
+      modal:[
+        {
+          isOpened:false,
+          title:"History",
+        },
+        {
+          isOpened:false,
+          title:"Setting",
+        },
+        {
+          isOpened:false,
+          title:"Login",
+        }
+      ]
     }
   }
+
   // изменение цвета в зависимости от mode
   
   componentDidUpdate(){
@@ -48,6 +64,21 @@ class App extends Component {
 onModeSelect=(mode)=>{
   this.setState(state=>({...state, mode:mode}))
 }
+//открытие и закрытие модального окна модального окна 
+onToggleModalOpen=(name)=>{
+  this.setState(({modal})=>({
+    modal : modal.map(item => {
+      if(item.title === name ){
+        return {...item, isOpened: !item.isOpened}
+      }
+      return item 
+    })
+  }))
+  // this.setState(state=>(
+  //   {...state, modal: state.modal.map(el=>el.title == name ? el.isOpened = true : el.isOpened =false)}
+  //   ))
+  
+}
 // передаваемые настройки таймера в зависимости от нажатой кнопки 
   onChangeVisibleSettings=(store,mode)=>{
       switch(mode){
@@ -62,18 +93,30 @@ onModeSelect=(mode)=>{
       }
   }
   render(){
-    const {store,mode} = this.state
+    
+    const {store,mode} = this.state;
+
+    const modalWindow = this.state.modal.map( item =>{
+      return <Modal key={item.title} isOpened={item.isOpened} title={item.title} onModalClose={()=>{this.onToggleModalOpen(item.title)}}/>
+    })
+
+
     let VisibleSetting = this.onChangeVisibleSettings(store, mode);
     // if(VisibleSetting.name == mode)
     // let VisibleSetting = this.onChangeVisibleSettings(store, mode);
     
     return (
-      <div className="container">
-        <Head mode={mode}/>
-        <div className="body">
-          <Timer onModeSelect={this.onModeSelect} mode={mode} key= {mode} settings={VisibleSetting}/>
+      <>
+        {modalWindow}
+        <div className="container">
+          
+          <Head onToggleModalOpen={this.onToggleModalOpen} mode={mode}/>
+          <div className="body">
+            <Timer onModeSelect={this.onModeSelect} mode={mode} key= {mode} settings={VisibleSetting}/>
+            
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

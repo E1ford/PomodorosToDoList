@@ -24,7 +24,9 @@ const TimerCount =({settings})=>{
         
         return `${minutes}:${padTime(seconds)}`;
     };
-
+    // React.useEffect(()=>{
+    //   setCount(activeTime)
+    // },[]);
     React.useEffect(() => {
       let timer;
       if (count > 0 && timerActive) {
@@ -38,11 +40,26 @@ const TimerCount =({settings})=>{
       };
     }, [count, timerActive ]);
 
+
+
+    //стилизация кнопки старт let clazzTimerColor= 'timer';
+    let clazzBtnStartColor = 'timer-btn-start'
+    switch(settings.name){
+      case "shortBreak":
+        clazzBtnStartColor = "timer-btn-start btn-start__blue";
+              break;
+      case "longBreak":
+        clazzBtnStartColor = "timer-btn-start btn-start__navyBlue";
+              break;
+      default:
+        clazzBtnStartColor = "timer-btn-start";
+  }
+
     return(
           <>
             <div className="timer-string">{ count > 0 && timerActive ? format(count) : format(count)}</div>
             <div className="">
-                <button onClick={onToggleStart} className={'timer-btn-start'}>{timerActive? "stop" : "start"}</button>
+                <button onClick={onToggleStart} className={clazzBtnStartColor}>{timerActive? "stop" : "start"}</button>
             </div>
           </>
     )

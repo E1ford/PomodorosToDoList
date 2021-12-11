@@ -25,20 +25,20 @@ class App extends Component {
         }
       },
       mode: "pomodoro",
-      modal:[
-        {
+      modal:{
+        history:{
           isOpened:false,
           title:"History",
         },
-        {
+        setting:{
           isOpened:false,
           title:"Setting",
         },
-        {
+        login:{
           isOpened:false,
           title:"Login",
         }
-      ]
+      }
     }
   }
 
@@ -64,20 +64,28 @@ class App extends Component {
 onModeSelect=(mode)=>{
   this.setState(state=>({...state, mode:mode}))
 }
-//открытие и закрытие модального окна модального окна 
+//открытие и закрытие модального окна
 onToggleModalOpen=(name)=>{
-  this.setState(({modal})=>({
-    modal : modal.map(item => {
-      if(item.title === name ){
-        return {...item, isOpened: !item.isOpened}
-      }
-      return item 
-    })
-  }))
-  // this.setState(state=>(
-  //   {...state, modal: state.modal.map(el=>el.title == name ? el.isOpened = true : el.isOpened =false)}
-  //   ))
-  
+  debugger
+  switch(name){
+    case "History":
+      // отключает все модалки, и включает ту на которую нажали
+      this.setState(state=>({...state,
+         modal: {
+           setting:
+            {...state.modal.setting, isOpened: false },
+            login:{...state.modal.login,isOpened:false }, 
+            history:{isOpened : !state.modal.history.isOpened , title:state.modal.history.title}}}))
+            break;
+    case "Setting":
+      this.setState(state=>({...state, modal: {history:{...state.modal.history, isOpened: false },login:{...state.modal.login,isOpened:false }, setting:{isOpened : !state.modal.setting.isOpened , title:state.modal.setting.title}}}))
+            break;
+    case "Login":
+      this.setState(state=>({...state, modal: {history:{...state.modal.history, isOpened: false },setting:{...state.modal.setting,isOpened:false }, login:{isOpened : !state.modal.login.isOpened , title:state.modal.login.title}}}))
+            break;
+    default:
+      console.log('default')
+  }
 }
 // передаваемые настройки таймера в зависимости от нажатой кнопки 
   onChangeVisibleSettings=(store,mode)=>{
@@ -93,12 +101,9 @@ onToggleModalOpen=(name)=>{
       }
   }
   render(){
-    
     const {store,mode} = this.state;
-
-    const modalWindow = this.state.modal.map( item =>{
-      return <Modal key={item.title} isOpened={item.isOpened} title={item.title} onModalClose={()=>{this.onToggleModalOpen(item.title)}}/>
-    })
+    const {history,login,setting} = this.state.modal
+    
 
 
     let VisibleSetting = this.onChangeVisibleSettings(store, mode);
@@ -107,9 +112,10 @@ onToggleModalOpen=(name)=>{
     
     return (
       <>
-        {modalWindow}
+        <Modal key={history.title} isOpened={history.isOpened} title={history.title} onModalClose={()=>{this.onToggleModalOpen(history.title)}}/>
+        <Modal key={login.title} isOpened={login.isOpened} title={login.title} onModalClose={()=>{this.onToggleModalOpen(login.title)}}/>
+        <Modal key={setting.title} isOpened={setting.isOpened} title={setting.title} onModalClose={()=>{this.onToggleModalOpen(setting.title)}}/>
         <div className="container">
-          
           <Head onToggleModalOpen={this.onToggleModalOpen} mode={mode}/>
           <div className="body">
             <Timer onModeSelect={this.onModeSelect} mode={mode} key= {mode} settings={VisibleSetting}/>

@@ -1,10 +1,10 @@
-
+import {changeMode} from '../../../redux/actionCreators'
 import './buttonMode.css'
 
-const ButtonMode =({mode,onModeSelect})=>{
+const ButtonMode =({mode,dispatch})=>{
 
-    const onClickChangeSettings=(e)=>{
-        onModeSelect(e.target.name)
+    const onDispatchChangeSettings=(e)=>{
+        dispatch(changeMode(e.target.name))
     }
 
 
@@ -17,7 +17,7 @@ const ButtonMode =({mode,onModeSelect})=>{
         const active = mode === item.name;
         const clazz = active ? "timer-btn__mode-active" :  "timer-btn__mode";
         return <button 
-                onClick={onClickChangeSettings}
+                onClick={onDispatchChangeSettings}
                 className={clazz}
                 name={item.name}
                 key = {item.name}

@@ -1,12 +1,31 @@
 import React from 'react'
 import './timerCount.css'
 
-const TimerCount =({settings})=>{
+const TimerCount =({settings, mode})=>{
   
-  let activeTime = settings.time * 60;
+  let timeMode = 25;
+
+  switch(mode){
+    case 'pomodoro':
+      timeMode = settings.pomodoro.time;
+      break
+    case 'shortBreak':
+      timeMode = settings.shortBreak.time;
+      break
+    case 'longBreak':
+      timeMode = settings.longBreak.time;
+      break
+      default: timeMode = 25;
+  }
+
+let activeTime = timeMode * 60;
+
 
   let [count,setCount] = React.useState(activeTime);
   let [timerActive, settimerActive] = React.useState(false);
+
+
+
 
   const onToggleStart=()=>{
     settimerActive(state=>{

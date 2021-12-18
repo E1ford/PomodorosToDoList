@@ -48,9 +48,9 @@
     opacity: 1;
     font-weight: bold;
 }
-.timer-string{
-    color:#eee;
-    font-size: 120px;
-    font-weight: bold;
-    /* margin-top: 20px; */
+
+@media (max-width:660px){
+    .timer{
+        height: 37vh;
+    }
 }

@@ -1,11 +1,14 @@
+import { useSelector, useDispatch } from "react-redux"
+
 import ButtonMode from "./buttonMode/buttonMode"
 import TimerCount from "./timerCount/timerCount"
 import './timer.css'
 
-const Timer =(props)=>{
-    const {mode,settings} = props
 
+const Timer =()=>{
 
+    const {mode, settings} = useSelector(state=>state)
+    const dispatch = useDispatch()
     //установка класса цвета timer 
     let clazzTimerColor= 'timer';
     switch(mode){
@@ -27,9 +30,9 @@ const Timer =(props)=>{
         <div className={clazzTimerColor}>
             <div className="timer-btn">
                 <ButtonMode mode={mode}
-                onModeSelect={props.onModeSelect}/>
+                dispatch={dispatch}/>
             </div>
-            <TimerCount settings ={settings}/>
+            <TimerCount key={mode} mode={mode} settings ={settings}/>
         </div>
     )
 }

@@ -28,3 +28,9 @@
 .btn-start__navyBlue{
     color: #5889ac;
 }
+
+@media (max-width:660px){
+    .timer-string{
+        font-size: 100px;
+    }
+}

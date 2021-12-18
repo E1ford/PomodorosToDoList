@@ -1,8 +1,16 @@
 body{
-  background-color: #d95550;
+  /* background-color: #d95550; */
 }
 .container{
   margin: 0 auto;
   max-width: 620px;
-  
+}
+
+
+@media (max-width:660px){
+  .container{
+    margin: 0 30px;
+    max-width: 620px;
+    
+  }
 }

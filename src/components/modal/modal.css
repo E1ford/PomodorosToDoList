@@ -4,10 +4,12 @@
     width: 100%; 
     background-color: rgba(0, 0, 0, .2);
     backdrop-filter: blur(10px);
+    
 }
 .modal__wrapper.open{
     height: 100%;
     display: block;
+    
 }
 .modal__wrapper.close{
     height: 0;
@@ -17,7 +19,7 @@
     max-width: 500px;
     margin: 0 auto;
     background: white;
-    margin-top: 5%;
+    margin-top: 10%;
     padding: 20px;
     border-radius: 10px;
     max-height: 500px;
@@ -41,4 +43,10 @@
 .modal__body h2 {
     text-align: center;
     width: 100%;
+}
+
+@media (max-width:660px){
+    .modal__body{
+        margin-top: 25%;
+    }
 }

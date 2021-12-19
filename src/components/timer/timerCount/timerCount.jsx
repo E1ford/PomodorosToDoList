@@ -63,13 +63,17 @@ let activeTime = timeMode * 60;
 
     //стилизация кнопки старт let clazzTimerColor= 'timer';
     let clazzBtnStartColor = 'timer-btn-start'
-    switch(settings.name){
+    switch(mode){
+      case "pomodoro":
+        clazzBtnStartColor = "timer-btn-start";
+              break;
       case "shortBreak":
-        clazzBtnStartColor = "timer-btn-start btn-start__blue";
+        clazzBtnStartColor = "timer-btn-start blue";
               break;
       case "longBreak":
-        clazzBtnStartColor = "timer-btn-start btn-start__navyBlue";
+        clazzBtnStartColor = "timer-btn-start navyBlue";
               break;
+      
       default:
         clazzBtnStartColor = "timer-btn-start";
   }

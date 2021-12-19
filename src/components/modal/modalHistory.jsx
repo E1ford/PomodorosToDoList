@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 
 
-const Modal = ({isOpened, title, onModalClose}) =>{
+const ModalHistory = ({isOpened, title, onModalClose}) =>{
 
     return (
         <div className={`modal__wrapper ${isOpened ? 'open' : 'close'}`}>
@@ -19,4 +19,4 @@ const Modal = ({isOpened, title, onModalClose}) =>{
 }
 
 
-export default Modal;
+export default ModalHistory;

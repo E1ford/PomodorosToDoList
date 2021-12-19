@@ -1,14 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux'
 import './head.css'
-import {ModalOpen} from '../../redux/actionCreators'
+import {ModalOpenHistory,ModalOpenSetting} from '../../redux/actionCreators'
 
 const Head =()=>{
     const activeMode = useSelector(state=>state.mode);
     const dispatch = useDispatch()
 
     
-    const onOpenModal=(e)=>{
-        dispatch(ModalOpen(e.target.name))
+    const onModalOpenHistory=()=>{
+        dispatch(ModalOpenHistory())
+    }
+    const onModalOpenSetting=()=>{
+        dispatch(ModalOpenSetting())
     }
     // установка цвета фона сайта 
     switch(activeMode){
@@ -48,17 +51,17 @@ const Head =()=>{
             <h2 className="head-title"><img name="History"src="https://pomofocus.io/icons/icon-white.png" alt="" /><span>P</span>omodorosTDL</h2>
             <ul>
                 <li name="History">
-                    <button onClick={onOpenModal} className={clazzBtn} name="History"type="submit">
+                    <button onClick={onModalOpenHistory} className={clazzBtn} name="History"type="submit">
                         <img name="History"src="https://pomofocus.io/icons/graph-white.png" alt="" /> History
                     </button>
                 </li>
                 <li>
-                    <button onClick={onOpenModal} className={clazzBtn} name="Setting" type="submit">
+                    <button onClick={onModalOpenSetting} className={clazzBtn} name="Setting" type="submit">
                         <img name="Setting" src="https://pomofocus.io/icons/config-white.png" alt="" />  Setting
                         </button>
                 </li> 
                 <li>
-                    <button onClick={onOpenModal} className={clazzBtn} name="Login" type="submit">
+                    <button className={clazzBtn} name="Login" type="submit">
                         <img name="Login" src="https://pomofocus.io/icons/user-white.png" alt="" /> Login
                     </button>
                 </li>

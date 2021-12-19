@@ -14,49 +14,33 @@ let initialState = {
         }
     },
     mode: "pomodoro",
-    modal: [
-        {
+    modal:{
+        history:{
             isOpened: false,
-            title: "History",
-        },{
+            title: "History",},
+        setting:{
             isOpened: false,
-            title: "Setting",
-        },{
+            title: "Setting",},
+        login:{
             isOpened: false,
             title: "Login",
         }
-    ]
+    }
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case "CHANGE-MODE": {
-            return {
-                ...state,
-                mode:action.payload
-            }
+            return {...state, mode:action.payload}
         }
-        case "MODAL-OPEN": {
-            let newModalSettings = state.modal.map(i => {
-                return {...i,isOpened:false}})
-            return {
-                ...state,
-                modal: newModalSettings.map(i=>{
-                    let newItem = i;
-                    if(i.title === action.payload){
-                        newItem = {...i, isOpened: !i.isOpened }
-                    }
-                    return newItem
-                })
-            }
+        case "MODAL-OPEN-HISTORY": {
+            return{...state, modal:{...state.modal, history:{...state.modal.history,isOpened:true}}}
+        }
+        case "MODAL-OPEN-SETTING": {
+            return{...state, modal:{...state.modal, setting:{...state.modal.setting,isOpened:true}}}
         }
         case "MODAL-CLOASE": {
-            let newModalSettings = state.modal.map(i => {
-                return {...i,isOpened:false}})
-            return {
-                ...state,
-                modal: newModalSettings
-            }
+            return{...state, modal:{...state.modal, setting:{...state.modal.setting,isOpened:false},history:{...state.modal.history,isOpened:false}}}
         }
         default:
             return state;

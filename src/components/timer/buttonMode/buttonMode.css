@@ -1,5 +1,9 @@
 
+.timer-btn{
+    display: flex;
+    flex-wrap: nowrap;
 
+}
 .timer-btn__mode{
     border: none;
     color: white;
@@ -19,11 +23,13 @@
     border-radius: 4px;
     font-size: 16px;
     padding: 2px 12px;
-    height: 28px;
+    height: 100%;
     cursor: pointer;
     background: none rgba(0, 0, 0, 0.15);
     box-shadow: none;
     color: white;
     opacity: 1;
     font-weight: bold;
+}
+@media (max-width:660px){
 }

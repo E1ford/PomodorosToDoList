@@ -1,9 +1,5 @@
 import React from 'react';
 import './modal.css'
-import SettingsModal from './settingsModal/settingsModal';
-import { useSelector } from 'react-redux';
-
-
 
 const Modal = ({isOpened, title, onModalClose}) =>{
 
@@ -12,7 +8,7 @@ const Modal = ({isOpened, title, onModalClose}) =>{
             <div className="modal__body">
                 <div className="modal__close" onClick={onModalClose}>×</div>
                 <h2>{title}</h2>
-                <hr />
+                <hr/>
             </div>
         </div>
     )

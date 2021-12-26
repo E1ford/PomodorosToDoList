@@ -9,8 +9,7 @@ body{
 
 @media (max-width:660px){
   .container{
-    margin: 0 30px;
+    margin: 0 12px;
     max-width: 620px;
-    
   }
 }

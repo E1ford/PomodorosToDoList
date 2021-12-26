@@ -10,9 +10,16 @@ let initialState = {
         },
         longBreak: {
             name: "longBreak",
-            time: 15,
-        }
+            time: 10,
+        },
+        autoPlay:false
     },
+    tasks:[
+        {id:'1',text:'хей нажми на эту кнопку, что бы удалить эту  задачу ⇒', numberPomodoro: 1, done:false},
+        {id:'2',text:'⇐ А теперь нажми сюда если сделал ее', numberPomodoro: 2, done:false},
+        {id:'3',text: 'Прошлая задача исчезла но ты все еще можешь посмотреть ее нажав на кнопку  History, она находится на самом верху ↑', numberPomodoro: 4, done:false},
+        {id:'4',text:'что бы добавить задачу нажми на кнопку +Add task которая находится в самом низу 🠗', numberPomodoro: 4, done:false},
+    ],
     mode: "pomodoro",
     modal:{
         history:{
@@ -25,6 +32,11 @@ let initialState = {
             isOpened: false,
             title: "Login",
         }
+    },
+    history:{
+        pomodoro:0,
+        shortBreak:0,
+        longBreak:0
     }
 }
 
@@ -41,6 +53,30 @@ const reducer = (state = initialState, action) => {
         }
         case "MODAL-CLOASE": {
             return{...state, modal:{...state.modal, setting:{...state.modal.setting,isOpened:false},history:{...state.modal.history,isOpened:false}}}
+        }
+        case "CHANGE-TIME-MODAL": {
+            return{...state,settings:{...action.payload}}
+        }
+        case "ADD-HISTORY-POMODORO": {
+            return{...state,history:{...state.history, pomodoro:state.history.pomodoro + 1}}
+        }
+        case "ADD-HISTORY-SHORT-BREAK": {
+            return{...state,history:{...state.history, shortBreak:state.history.shortBreak + 1}}
+        }
+        case "ADD-HISTORY-LONG-BREAK": {
+            return{...state,history:{...state.history, longBreak:state.history.longBreak + 1}}
+        }
+        case "CHANGE-TASK-DONE": {
+            let newTasks=[...state.tasks];
+            newTasks[action.payload].done = true;
+            return{...state, tasks:newTasks}
+        }
+        case "DELETE-TASK": {
+            let newTasks =  state.tasks.filter((el,index)=>index !== action.payload);
+            return{...state,tasks:newTasks}
+        }
+        case "ADD-NEW-TASK": {
+            return{...state,tasks:[]}
         }
         default:
             return state;

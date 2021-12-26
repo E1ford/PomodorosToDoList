@@ -1,7 +1,6 @@
 
 .timer{
-    padding: 20px 0 30px;
-    background-color: #dd6662;
+    background: none rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     max-width: 480px;
     height: 30vh;
@@ -14,43 +13,17 @@
     margin-top: 50px;
     margin-bottom: 20px;
 }
-.timer__blue{
-    background-color: #5e9ca0;
-}
-.timer__navyBlue{
-    background-color: #5889ac;
-}
 
-.timer-btn__mode{
-    border: none;
-    color: white;
-    margin: 0px;
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 2px 12px;
-    height: 28px;
-    cursor: pointer;
-    background: none;
-    box-shadow: none;
-    font-weight: 300;
-}
-.timer-btn__mode-active{
-    border: none;
-    margin: 0px;
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 2px 12px;
-    height: 28px;
-    cursor: pointer;
-    background: none rgba(0, 0, 0, 0.15);
-    box-shadow: none;
-    color: white;
-    opacity: 1;
-    font-weight: bold;
-}
 
 @media (max-width:660px){
     .timer{
         height: 37vh;
+        padding:10px;
+    }
+}
+@media (max-width:380px){
+    .timer{
+        height: 45vh;
+        padding:10px;
     }
 }

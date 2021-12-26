@@ -15,10 +15,10 @@ let initialState = {
         autoPlay:false
     },
     tasks:[
-        {id:'1',text:'хей нажми на эту кнопку, что бы удалить эту  задачу ⇒', numberPomodoro: 1, done:false},
-        {id:'2',text:'⇐ А теперь нажми сюда если сделал ее', numberPomodoro: 2, done:false},
-        {id:'3',text: 'Прошлая задача исчезла но ты все еще можешь посмотреть ее нажав на кнопку  History, она находится на самом верху ↑', numberPomodoro: 4, done:false},
-        {id:'4',text:'что бы добавить задачу нажми на кнопку +Add task которая находится в самом низу 🠗', numberPomodoro: 4, done:false},
+        {id:1, text:'хей нажми на эту кнопку, что бы удалить эту  задачу ⇒', numberPomodoro: 1, done:false},
+        {id:2, text:'⇐ А теперь нажми сюда если сделал ее', numberPomodoro: 2, done:false},
+        {id:3, text: 'Прошлая задача исчезла но ты все еще можешь посмотреть ее нажав на кнопку  History, она находится на самом верху ↑', numberPomodoro: 4, done:false},
+        {id:4, text:'что бы добавить задачу нажми на кнопку +Add task которая находится в самом низу 🠗', numberPomodoro: 4, done:false},
     ],
     mode: "pomodoro",
     modal:{
@@ -68,11 +68,12 @@ const reducer = (state = initialState, action) => {
         }
         case "CHANGE-TASK-DONE": {
             let newTasks=[...state.tasks];
-            newTasks[action.payload].done = true;
+            let index = newTasks.findIndex(el => el.id === action.payload)
+            newTasks[index].done = true;
             return{...state, tasks:newTasks}
         }
         case "DELETE-TASK": {
-            let newTasks =  state.tasks.filter((el,index)=>index !== action.payload);
+            let newTasks =  state.tasks.filter((el)=>el.id !== action.payload);
             return{...state,tasks:newTasks}
         }
         case "ADD-NEW-TASK": {

@@ -13,11 +13,11 @@ const ToDoList =()=>{
         dispatch = useDispatch(),
         tasks = state.tasks;
     
-    const onChangeTaskDone =(index)=>{
-        dispatch(changeTaskDone(index))
+    const onChangeTaskDone =(id)=>{
+        dispatch(changeTaskDone(id))
     }
-    const onDeleteTask =(index)=>{
-        dispatch(deleteTask(index))
+    const onDeleteTask =(id)=>{
+        dispatch(deleteTask(id))
     }
 
     // const onAddNewTask =(text)=>{
@@ -28,12 +28,12 @@ const ToDoList =()=>{
     let activeTasks = tasks.filter(el => el.done === false).map((item,index) =>{
         return  <li key = {index} className='item-list'>
                     <div className='content-left' name={item.name}>
-                        <button onClick={()=>{onChangeTaskDone(index)}} className='btn-ok'>
+                        <button onClick={()=>{onChangeTaskDone(item.id)}} className='btn-ok'>
                             <i className="bi bi-patch-check"></i>
                         </button>
                         <div className='textToDo'>{item.text}</div>
                     </div>
-                    <button onClick={()=>{onDeleteTask(index)}} className="btn-ok">
+                    <button onClick={()=>{onDeleteTask(item.id)}} className="btn-ok">
                         <i className="bi bi-trash"></i>
                     </button>
                 </li>

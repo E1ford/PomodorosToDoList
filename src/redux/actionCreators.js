@@ -32,13 +32,13 @@ export let addHistoryLongBreak = () => ({
 });
 
 
-export let changeTaskDone = (index) => ({
+export let changeTaskDone = (id) => ({
     type: "CHANGE-TASK-DONE",
-    payload:index
+    payload:id
 });
-export let deleteTask = (index) => ({
+export let deleteTask = (id) => ({
     type: "DELETE-TASK",
-    payload:index
+    payload:id
 });
 export let addNewTask = (text) => ({
     type: "ADD-NEW-TASK",

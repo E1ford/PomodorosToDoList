@@ -52,6 +52,7 @@ const reducer = (state = initialState, action) => {
             return{...state, modal:{...state.modal, setting:{...state.modal.setting,isOpened:true}}}
         }
         case "MODAL-CLOASE": {
+            document.body.style.overflow = '';
             return{...state, modal:{...state.modal, setting:{...state.modal.setting,isOpened:false},history:{...state.modal.history,isOpened:false}}}
         }
         case "CHANGE-TIME-MODAL": {

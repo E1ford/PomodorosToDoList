@@ -17,13 +17,13 @@
 
 @media (max-width:660px){
     .timer{
-        height: 37vh;
-        padding:10px;
+        margin-top: 20px;
+        height: 42vh;
+        padding:25px 10px;
     }
 }
 @media (max-width:380px){
     .timer{
         height: 45vh;
-        padding:10px;
     }
 }

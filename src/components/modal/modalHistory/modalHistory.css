@@ -9,7 +9,7 @@
 .modal__wrapper.open{
     height: 100%;
     display: block;
-    
+
 }
 .modal__wrapper.close{
     height: 0;

@@ -8,9 +8,11 @@ const Head =()=>{
 
     
     const onModalOpenHistory=()=>{
+        document.body.style.overflow = 'hidden'
         dispatch(ModalOpenHistory())
     }
     const onModalOpenSetting=()=>{
+        document.body.style.overflow = 'hidden'
         dispatch(ModalOpenSetting())
     }
     // установка цвета фона сайта 

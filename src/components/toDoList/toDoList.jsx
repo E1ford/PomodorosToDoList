@@ -20,10 +20,6 @@ const ToDoList =()=>{
         dispatch(deleteTask(id))
     }
 
-    // const onAddNewTask =(text)=>{
-    //     dispatch(addNewTask(text))
-    // }
-
 
     let activeTasks = tasks.filter(el => el.done === false).map((item,index) =>{
         return  <li key = {index} className='item-list'>

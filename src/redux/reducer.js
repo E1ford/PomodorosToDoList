@@ -15,10 +15,10 @@ let initialState = {
         autoPlay:false
     },
     tasks:[
-        {id:1, text:'хей нажми на эту кнопку, что бы удалить эту  задачу ⇒', numberPomodoro: 1, done:false},
-        {id:2, text:'⇐ А теперь нажми сюда если сделал ее', numberPomodoro: 2, done:false},
-        {id:3, text: 'Прошлая задача исчезла но ты все еще можешь посмотреть ее нажав на кнопку  History, она находится на самом верху ↑', numberPomodoro: 4, done:false},
-        {id:4, text:'что бы добавить задачу нажми на кнопку +Add task которая находится в самом низу 🠗', numberPomodoro: 4, done:false},
+        {id:3, text:'хей нажми на эту кнопку, что бы удалить эту  задачу ⇒', numberPomodoro: 1, done:false},
+        {id:0, text:'⇐ А теперь нажми сюда если сделал ее', numberPomodoro: 2, done:false},
+        {id:2, text: 'Прошлая задача исчезла но ты все еще можешь посмотреть ее нажав на кнопку  History, она находится на самом верху ↑', numberPomodoro: 4, done:false},
+        {id:1, text:'что бы добавить задачу нажми на кнопку +Add task которая находится в самом низу 🠗', numberPomodoro: 4, done:false},
     ],
     mode: "pomodoro",
     modal:{
@@ -78,7 +78,10 @@ const reducer = (state = initialState, action) => {
             return{...state,tasks:newTasks}
         }
         case "ADD-NEW-TASK": {
-            return{...state,tasks:[]}
+            let sortArr =[...state.tasks];
+            const newId = sortArr.sort((a, b)=> a.id - b.id).length;
+            let newTask = {id:newId, text:action.payload, numberPomodoro: 1, done:false}
+            return{...state, tasks:[...state.tasks,newTask]}
         }
         default:
             return state;

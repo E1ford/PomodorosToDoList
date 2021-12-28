@@ -32,7 +32,9 @@ const TimerCount =({settings, mode})=>{
 
   
 // ф-ция по добававлению 0 если длина читсла 1 
-  const padTime = time => {return String(time).length === 1 ? `0${time}` : `${time}`;};
+    const padTime = time => {
+        return String(time).length === 1 ? `0${time}` : `${time}`;
+    };
 // форматирует время в MM:СС
   const format = time => {
       const minutes = Math.floor(time / 60);
@@ -72,23 +74,25 @@ const TimerCount =({settings, mode})=>{
 
 
 //стилизация кнопки старт let clazzTimerColor= 'timer';
-  let clazzBtnStartColor = 'timer-btn-start'
+  let clazzBtnStartColor = 'timer__btn_start'
   switch(mode){
 
     case "shortBreak":
-      clazzBtnStartColor = "timer-btn-start blue";
+      clazzBtnStartColor = "timer__btn_start blue";
             break;
     case "longBreak":
-      clazzBtnStartColor = "timer-btn-start navyBlue";
+      clazzBtnStartColor = "timer__btn_start navyBlue";
             break;
     default:
-      clazzBtnStartColor = "timer-btn-start";
+      clazzBtnStartColor = "timer__btn_start";
   }
   
 
   return(
         <>
-          <div className="timer-string">{ count > 0 && timerActive ? format(count) : format(count)}</div>
+          <div className="timer__string">{ count > 0 && timerActive ?
+             format(count) : format(count)}
+          </div>
           <button onClick={onToggleStart} className={clazzBtnStartColor}>{timerActive? "stop" : "start"}</button>
         </>
   )

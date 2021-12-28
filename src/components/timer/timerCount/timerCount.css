@@ -1,11 +1,11 @@
 
 
-.timer-string{
+.timer__string{
     color:#eee;
     font-size: 120px;
     font-weight: bold;
 }
-.timer-btn-start{
+.timer__btn_start{
     transition: color 0.5s ease-in-out 0s;
     display: inline-block;
     text-transform: uppercase;
@@ -30,7 +30,7 @@
 }
 
 @media (max-width:660px){
-    .timer-string{
+    .timer__string{
         font-size: 100px;
     }
 }

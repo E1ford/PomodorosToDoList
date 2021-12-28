@@ -1,7 +1,7 @@
 import {useState,} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import './toDoList.css'
-import {deleteTask,changeTaskDone,addNewTask} from '../../redux/actionCreators'
+import {deleteTask,changeTaskDone} from '../../redux/actionCreators'
 import InputAddTasks from './inputAddTasks/inputAddTasks'
 
 
@@ -22,7 +22,7 @@ const ToDoList =()=>{
 
 
     let activeTasks = tasks.filter(el => el.done === false).map((item,index) =>{
-        return  <li key = {index} className='item-list'>
+        return  <li key = {index} className='tasks__item-list'>
                     <div className='content-left' name={item.name}>
                         <button onClick={()=>{onChangeTaskDone(item.id)}} className='btn-ok'>
                             <i className="bi bi-patch-check"></i>
@@ -36,12 +36,12 @@ const ToDoList =()=>{
     })
 
     return(
-        <div className='tasks-wrapper'>
-            <div className='active-tasks'>
-                <ul className='active-ul'>{activeTasks}</ul>
+        <div className='tasks__wrapper'>
+            <div className='tasks__active-tasks'>
+                <ul className='tasks__active-list'>{activeTasks}</ul>
             </div>
             {openForm ? <InputAddTasks onCansel={setTogleOpenForm}/> : 
-                <button onClick={()=>{setTogleOpenForm(true)}} className='button-add-task'>+Add task</button> }
+                <button onClick={()=>{setTogleOpenForm(true)}} className='tasks__button-add-task'>+Add task</button> }
         </div>
     )
 }

@@ -1,10 +1,9 @@
 
-.timer-btn{
+.timer__button{
     display: flex;
     flex-wrap: nowrap;
-
 }
-.timer-btn__mode{
+.timer__button_mode{
     border: none;
     color: white;
     margin: 0px;
@@ -17,7 +16,7 @@
     box-shadow: none;
     font-weight: 300;
 }
-.timer-btn__mode-active{
+.timer__button_active{
     border: none;
     margin: 0px;
     border-radius: 4px;
@@ -30,6 +29,4 @@
     color: white;
     opacity: 1;
     font-weight: bold;
-}
-@media (max-width:660px){
 }

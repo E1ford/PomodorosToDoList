@@ -15,8 +15,8 @@ const ModalHistory = () =>{
         dispatch(ModalCloase(title))
     }
     const doneTasks = state.tasks.filter(el => el.done === true).map((item,index) =>{
-        return  (<li key = {index} className='done-tasks-item'>
-                    <div className='div-index-task'>{index+1+'.'}</div>
+        return  (<li key = {index} className='modal__done-tasks-item'>
+                    <div className='done-tasks__index'>{index+1+'.'}</div>
                     <div className='done-tasks'>{item.text}</div>
                 </li>)
     })
@@ -28,24 +28,24 @@ const ModalHistory = () =>{
                 <div className="modal__close" onClick={onModalClose}>×</div>
                 <h2>{title}</h2>
                 <hr />
-                <div className='history-one-block'>
-                    <div className="history-mode">
+                <div className='mode__first-box'>
+                    <div className="modal__history-mode">
                         <p>Pomodoro</p>
                         <p>{history.pomodoro}</p>
                     </div>
-                    <div className="history-mode">
+                    <div className="modal__history-mode">
                         <p>Short break</p>
                         <p>{history.shortBreak}</p>
                         
                     </div>
-                    <div className="history-mode">
+                    <div className="modal__history-mode">
                         <p>Long break</p>
                         <p>{history.longBreak}</p>
                     </div>
                 </div>
-                <div className="history-two-block">
-                    <h2 className='title-toDoList'>To Do List</h2>
-                    <ul className='ul-done-tasks'>
+                <div>
+                    <h2 className='modal__title-toDoList'>To Do List</h2>
+                    <ul className='modal__done-list-tasks'>
                         {doneTasks}
                     </ul>
                 </div>

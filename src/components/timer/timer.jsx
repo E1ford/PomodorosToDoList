@@ -13,7 +13,7 @@ const Timer =()=>{
     //костыль для обновления таймера при смене времени 
     let key = settings.pomodoro.time + settings.shortBreak.time + settings.longBreak.time;
     return(
-        <div className='timer'>
+        <div className='timer__wrapper'>
                 <ButtonMode mode={mode}
                 dispatch={dispatch}/>
             <TimerCount key={key} mode={mode} settings ={settings}/>

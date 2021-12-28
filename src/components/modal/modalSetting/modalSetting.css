@@ -4,12 +4,10 @@
     width: 100%; 
     background-color: rgba(0, 0, 0, .2);
     backdrop-filter: blur(10px);
-    
 }
 .modal__wrapper.open{
     height: 100%;
     display: block;
-    
 }
 .modal__wrapper.close{
     height: 0;
@@ -44,7 +42,7 @@
     text-align: center;
     width: 100%;
 }
-.double-border-button {
+.mode__double-border-button {
     width: 60%;;
     text-align: center;
     text-decoration: none;
@@ -57,7 +55,7 @@
     font-family: 'Montserrat', sans-serif;
     transition: .4s;
 }
-.double-border-button:after {
+.mode__double-border-button:after {
     content: "";
     position: absolute;
     top: 0;
@@ -70,34 +68,32 @@
     border: 1px solid rgba(0, 0, 0, 0);
     transition: .4s;
 }
-.double-border-button:hover:after {
+.mode__double-border-button:hover:after {
     border-color: #000000;
     width: calc(100% - 10px);
     height: calc(100% + 10px);
 }
-
-.raz {
+.modal__input {
     font-size: 20px;
     width: 50px;
     outline:none;
     border: 1px solid rgb(133, 133, 133);
     text-align: center;
 }
-
-.time-wrapper{
+.modal__time-wrapper{
     max-width: 450px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
-.time-wrapper h2{
+.modal__time-wrapper h2{
     font-weight: 500;
     text-align: left;
 }
-.mode{
+.modal__modes{
     text-align: center;
 }
-.time-block{
+.modal__time-mode-wrapper{
     align-items: center;
     display: flex;
     justify-content: space-around;

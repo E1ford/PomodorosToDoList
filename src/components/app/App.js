@@ -7,7 +7,7 @@ import Timer from "../timer/timer"
 import './app.css';
 import { useSelector } from 'react-redux';
 import React from "react";
-
+ 
 const  App =()=> {
 
 // костыль для перерисовки таймера 

@@ -41,26 +41,26 @@ const ModalSetting = () =>{
                 <div className="modal__close" onClick={onModalClose}>×</div>
                 <h2>{title}</h2>
                 <hr />
-                <div className='time-wrapper' >
+                <div className='modal__time-wrapper' >
                     <h2>Time(minutes)</h2>
-                    <div className='time-block'>
-                        <div className="mode">
+                    <div className='modal__time-mode-wrapper'>
+                        <div className="modal__modes">
                             <p>Pomodoro</p>
-                            <input name='pomodoro' onChange={updateSettingPomodoro} type="number" value={newSettings.pomodoro.time}  className="raz"/>
+                            <input name='pomodoro' onChange={updateSettingPomodoro} type="number" value={newSettings.pomodoro.time}  className="modal__input"/>
                         </div>
-                        <div className="mode">
+                        <div className="modal__modes">
                             <p>Short breack</p>
-                            <input name='shortBreak' onChange={updateSettingShortBreack} type="number"  value={newSettings.shortBreak.time}  className="raz"/>
+                            <input name='shortBreak' onChange={updateSettingShortBreack} type="number"  value={newSettings.shortBreak.time}  className="modal__input"/>
                         </div>
-                        <div className="mode">
+                        <div className="modal__modes">
                             <p>Long breack</p>
-                            <input name='longBreak' onChange={updateSettingLongBreack} type="number"  value={newSettings.longBreak.time}  className="raz"/>
+                            <input name='longBreak' onChange={updateSettingLongBreack} type="number"  value={newSettings.longBreak.time}  className="modal__input"/>
                         </div>
                     </div>
                 </div>
-                <button onClick={onUpdateTime} href="/" className="double-border-button">OK</button>
+                <button onClick={onUpdateTime} href="/" className="mode__double-border-button">OK</button>
             </div>
-        </div>
+        </div> 
     )
 }
 

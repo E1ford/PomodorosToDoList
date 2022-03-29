@@ -1,32 +1,31 @@
-
-.timer__button{
-    display: flex;
-    flex-wrap: nowrap;
+.timer__button {
+  display: flex;
+  flex-wrap: nowrap;
 }
-.timer__button_mode{
-    border: none;
-    color: white;
-    margin: 0px;
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 2px 12px;
-    height: 28px;
-    cursor: pointer;
-    background: none;
-    box-shadow: none;
-    font-weight: 300;
+.timer__button_mode {
+  border: none;
+  color: white;
+  margin: 0px;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 2px 12px;
+  height: 28px;
+  cursor: pointer;
+  background: none;
+  box-shadow: none;
+  font-weight: 300;
 }
-.timer__button_active{
-    border: none;
-    margin: 0px;
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 2px 12px;
-    height: 100%;
-    cursor: pointer;
-    background: none rgba(0, 0, 0, 0.15);
-    box-shadow: none;
-    color: white;
-    opacity: 1;
-    font-weight: bold;
+.timer__button_active {
+  border: none;
+  margin: 0px;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 2px 12px;
+  height: 100%;
+  cursor: pointer;
+  background: none rgba(0, 0, 0, 0.15);
+  box-shadow: none;
+  color: white;
+  opacity: 1;
+  font-weight: bold;
 }

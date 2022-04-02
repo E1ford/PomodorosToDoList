@@ -1,8 +1,6 @@
-# приложение для улучшения продуктивности в работе или учебе.
+### приложение для поднятия продуктивности работы или учебы
 
-Демо- https://e1ford.github.io/PomodorosToDoList/
-
-
+Демо [|ссылка|](https://e1ford.github.io/PomodorosToDoList/)
 
 ## технологии 
 - react
